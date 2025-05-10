@@ -1,15 +1,19 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.xsentry.intellijomfunctionfoldingplugin</id>
-    <name>intellij-om-function-folding-plugin</name>
-    <vendor>xsentry</vendor>
+    <id>com.omnedia.functionfolding</id>
+    <name>OM Function Folding</name>
+    <vendor>Omnedia</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>JavaScript</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.xsentry.intellijomfunctionfoldingplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.xsentry.intellijomfunctionfoldingplugin.startup.MyProjectActivity" />
-    </extensions>
+    <actions>
+        <action id="ToggleFunctionFolds"
+                icon="/icons/pluginIcon.svg"
+                class="com.omnedia.functionfolding.ToggleFunctionFoldsAction"
+                text="Toggle Function Folds"
+                description="Collapse/Expand all function blocks in file">
+            <keyboard-shortcut keymap="$default"
+                               first-keystroke="alt shift F"/>
+        </action>
+    </actions>
 </idea-plugin>
